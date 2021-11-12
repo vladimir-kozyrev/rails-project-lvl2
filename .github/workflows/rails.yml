@@ -13,16 +13,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: |
-          bin/bundle install
+      - name: Set up Ruby 3.0.2
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 3.0.2
 
-      - name: Run rubocop
+      - name: Build and test
         run: |
-          bin/bundle exec rubocop
-
-      - name: Run tests
-        run: |
-          bin/bundle exec rails db:migrate
-          bin/bundle exec rails test
-
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+          bundle exec rubocop
+          bundle exec rails db:create
+          bundle exec rails db:migrate
+          bundle exec rails test
