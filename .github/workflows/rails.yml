@@ -15,14 +15,14 @@ jobs:
 
       - name: Install dependencies
         run: |
-          bundle install
+          bin/bundle install
 
       - name: Run rubocop
         run: |
-          bundle exec rubocop
+          bin/bundle exec rubocop
 
       - name: Run tests
         run: |
-          bundle exec rails db:migrate
-          bundle exec rails test
+          bin/bundle exec rails db:migrate
+          bin/bundle exec rails test
 
