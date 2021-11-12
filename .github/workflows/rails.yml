@@ -1,0 +1,28 @@
+name: rails
+
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          bundle install
+
+      - name: Run rubocop
+        run: |
+          bundle exec rubocop
+
+      - name: Run tests
+        run: |
+          bundle exec rails db:migrate
+          bundle exec rails test
+
