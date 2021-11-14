@@ -25,4 +25,5 @@ jobs:
           bundle exec rubocop
           bundle exec rails db:create
           bundle exec rails db:migrate
+          bundle exec rails webpacker:install
           bundle exec rails test
