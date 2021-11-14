@@ -11,9 +11,15 @@
   </head>
 
   <body>
+    <p><%= link_to 'Sign in', new_user_session_path %></p>
+    <p><%= link_to 'Sign up', new_user_registration_path %></p>
+    <p><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></p>
+
     <%# required for devise gem to work %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <%# required for devise gem to work %>
+
     <%= yield %>
   </body>
 </html>
