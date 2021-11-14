@@ -1,0 +1,10 @@
+nav.navbar.navbar-dark.navbar-static-top.navbar-expand-md
+  .container
+    .collapse.navbar-collapse#bs-example-navbar-collapse-1
+      ul.nav.navbar-nav.mr-auto
+        li.nav-item
+          = link_to 'Sign in', new_user_session_path, class: 'nav-link'
+        li.nav-item
+          = link_to 'Sign up', new_user_registration_path, class: 'nav-link'
+        li.nav-item
+          = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link'

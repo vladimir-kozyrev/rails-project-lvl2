@@ -2,8 +2,10 @@ AllCops:
   NewCops: enable
   Exclude:
     - 'bin/bundle'
-    - 'config/environments/development.rb'
+    # - 'config/environments/development.rb'
     - 'config/initializers/devise.rb'
+    - 'bin/webpack-dev-server'
+    - 'bin/webpack'
 
 Style/Documentation:
   Enabled: false

@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title
+      | Hexlet project #2
+    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    header
+      = render 'layouts/navigation'
+    - # required for devise gem to work
+    p.notice
+      = notice
+    p.alert
+      = alert
+    - # required for devise gem to work
+    = yield
