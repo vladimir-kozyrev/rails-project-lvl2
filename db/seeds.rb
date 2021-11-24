@@ -13,3 +13,16 @@
     name: Faker::Emotion.unique.noun
   )
 end
+
+# 3.times do
+#   post = Post.create(
+#     title: Faker::Lorem.sentence,
+#     body: Faker::Lorem.paragraph
+#   )
+#   3.times do
+#     comment = post.comments.build(
+#       body: Faker::Lorem.paragraph
+#     )
+#     comment.save
+#   end
+# end
