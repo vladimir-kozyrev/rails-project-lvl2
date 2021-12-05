@@ -14,17 +14,15 @@
   )
 end
 
-1.times do
-  user = User.create(
-    email: "test@test.com",
-    password: "testtest123"
+user = User.create(
+  email: 'test@test.com',
+  password: 'testtest123'
+)
+3.times do
+  post = user.posts.build(
+    title: Faker::Lorem.sentence,
+    body: Faker::Lorem.paragraph,
+    post_category_id: rand(0..4)
   )
-  3.times do
-    post = user.posts.build(
-      title: Faker::Lorem.sentence,
-      body: Faker::Lorem.paragraph,
-      post_category_id: rand(0..4)
-    )
-    post.save
-  end
+  post.save
 end
