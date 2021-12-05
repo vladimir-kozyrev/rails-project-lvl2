@@ -1,9 +1,9 @@
 AllCops:
+  TargetRubyVersion: 3.0.2
   NewCops: enable
   Exclude:
     - 'bin/bundle'
     - 'config/initializers/devise.rb'
     - 'db/schema.rb'
-
 Style/Documentation:
   Enabled: false
