@@ -7,40 +7,24 @@ $black: black;
         margin-bottom: 0;
         background: $black;
 }
-body {
-        background: $black;
-        color: $white;
-}
 h1,
 h2 {
         font-weight: bold;
 }
 p {
         font-size: 16px;
-        color: $white;
-}
-a:visited {
-        color: $black;
 }
 .jumbotron {
         background: #0048CD;
-        color: $white;
         text-align: center;
         p {
-                color: $white;
                 font-size: 26px;
         }
 }
-.link {
-        color: $white;
-}
 .btn-primary {
-        color: $white;
-        border-color: $white;
         margin-bottom: 5px;
 }
 .btn-sm {
-        background-color: $white;
         display: inline-block;
 }
 img,
@@ -50,8 +34,6 @@ audio {
         max-width: 80%;
 }
 caption {
-
         float: left;
         clear: both;
-
 }
