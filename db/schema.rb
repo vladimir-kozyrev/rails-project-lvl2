@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_05_101021) do
+ActiveRecord::Schema.define(version: 2021_12_09_141813) do
 
   create_table "post_categories", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2021_12_05_101021) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "post_id", null: false
+    t.index ["post_id"], name: "index_post_comments_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -47,6 +49,7 @@ ActiveRecord::Schema.define(version: 2021_12_05_101021) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "post_comments", "posts"
   add_foreign_key "posts", "post_categories"
   add_foreign_key "posts", "users"
 end

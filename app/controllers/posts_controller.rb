@@ -9,7 +9,10 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/1
-  def show; end
+  def show
+    @comments = @post.comments
+    @comment = @post.comments.build
+  end
 
   # GET /posts/new
   def new

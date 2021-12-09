@@ -2,4 +2,6 @@
 
 class PostComment < ApplicationRecord
   validates :content, presence: true
+  belongs_to :post
+  # has_ancestry
 end
