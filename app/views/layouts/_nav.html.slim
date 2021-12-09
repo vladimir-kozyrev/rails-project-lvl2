@@ -7,7 +7,8 @@ nav.navbar.navbar-dark.navbar-static-top.navbar-expand-md
             <i class="fas fa-home"></i>
         - if user_signed_in?
           li.nav-item
-            = link_to 'Sign out', destroy_user_session_path, class: 'nav-link', method: :delete
+            = link_to 'Sign out', destroy_user_session_path, class: 'nav-link',
+                                                             method: :delete
           li.nav-item
             = link_to 'New Post', new_post_path, class: 'nav-link'
         - else
