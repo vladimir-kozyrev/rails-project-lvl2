@@ -21,9 +21,10 @@ p
       - @comment.errors.each do |error|
         li
           = error.full_message
-  = f.input :content
+  = f.input :content, label: false
   = f.button :submit, 'Create', class: 'btn btn-default btn-primary'
 
+hr
 - @comments.each do |comment|
   b
     = @post.user.email

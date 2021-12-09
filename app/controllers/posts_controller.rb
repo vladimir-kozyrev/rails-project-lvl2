@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  # GET /posts/1
+  # GET /posts/:id
   def show
     @comments = @post.comments
     @comment = @post.comments.build
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  # GET /posts/1/edit
+  # GET /posts/:id/edit
   def edit; end
 
   # POST /posts
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /posts/1
+  # PATCH/PUT /posts/:id
   def update
     if @post.update(post_params)
       redirect_to @post, notice: 'Post was successfully updated.'
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1
+  # DELETE /posts/:id
   def destroy
     @post.destroy
     redirect_to posts_url, notice: 'Post was successfully destroyed.'
