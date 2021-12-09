@@ -16,14 +16,9 @@ table
 
       td
         b
-          = post.title
+          = link_to post.title, post
         br
         = post.body
+        br
+        = "Likes: , #{days_ago_since(post.created_at)} days, #{post.user.email}"
         hr
-      / td
-      /   = link_to 'Show', post
-      / td
-      /   = link_to 'Edit', edit_post_path(post)
-      / td
-      /   = link_to 'Destroy', post, method: :delete,
-      /                              data: { confirm: 'Are you sure?' }
