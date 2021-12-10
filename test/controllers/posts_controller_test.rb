@@ -32,7 +32,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
           body: @post.body,
           title: @post.title,
           user_id: @post.user_id,
-          post_category_id: @post.post_category_id
+          category_id: @post.category_id
         }
       }
     end
