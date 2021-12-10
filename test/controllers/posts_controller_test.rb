@@ -3,9 +3,16 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
     @post = posts(:one)
-    @user = users(:one)
+    # sign in to be able to do test actions
+    get '/users/sign_in'
+    sign_in users(:one)
+    post user_session_url
+    follow_redirect!
+    assert_response :success
   end
 
   test 'should get index' do

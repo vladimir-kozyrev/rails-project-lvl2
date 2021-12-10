@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     scope module: 'posts', shallow: true do
-      resources :comments
+      resources :comments, only: :create
     end
   end
 

@@ -18,6 +18,7 @@ user = User.create(
   email: 'test@test.com',
   password: 'testtest123'
 )
+
 3.times do
   post = user.posts.build(
     title: Faker::Lorem.sentence,
