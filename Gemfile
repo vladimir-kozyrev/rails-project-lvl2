@@ -23,11 +23,11 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+gem 'ancestry', '~> 4.1'
 gem 'devise'
 gem 'slim-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-gem 'ancestry', '~> 4.1'
 gem 'rollbar'
 gem 'rubocop-discourse'
 gem 'simple_form'

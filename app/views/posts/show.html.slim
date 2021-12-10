@@ -8,7 +8,7 @@ p
   = "Posted by #{@post.user.email}"
 p
   strong
-    = "Write a comment"
+    = 'Write a comment'
 
 = simple_form_for(@comment, url: post_comments_path(@post)) do |f|
   - if @comment.errors.any?
@@ -26,8 +26,9 @@ p
 
 hr
 - @comments.each do |comment|
-  b
-    = @post.user.email
-  br
-  = comment.content
-  hr
+  - unless comment.content.nil?
+    b
+      = @post.user.email
+    br
+    = comment.content
+    hr

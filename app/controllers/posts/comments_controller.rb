@@ -1,21 +1,24 @@
 # frozen_string_literal: true
 
-class Posts::CommentsController < Posts::ApplicationController
-  before_action :resource_post, only: :create
+class Posts
+  class CommentsController < Posts::ApplicationController
+    before_action :authenticate_user!, only: :create
+    before_action :resource_post, only: :create
 
-  # POST /posts/:post_id/comments
-  def create
-    comment = @resource_post.comments.build(comment_params)
-    if comment.save
-      redirect_to post_path(@resource_post), notice: 'Comment was successfully created.'
-    else
-      render post_path(@resource_post)
+    # POST /posts/:post_id/comments
+    def create
+      comment = @resource_post.comments.build(comment_params)
+      if comment.save
+        redirect_to post_path(@resource_post), notice: 'Comment was successfully created.'
+      else
+        render post_path(@resource_post)
+      end
     end
-  end
 
-  private
+    private
 
-  def comment_params
-    params.require(:post_comment).permit(:content)
+    def comment_params
+      params.require(:post_comment).permit(:content)
+    end
   end
 end
