@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Posts
+module Posts
   class CommentsController < Posts::ApplicationController
     before_action :authenticate_user!, only: :create
     before_action :resource_post, only: :create
