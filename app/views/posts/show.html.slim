@@ -4,6 +4,6 @@ p
   = @post.body
 p
   = "Posted by #{@post.user.email}"
-= render(partial: 'posts/comments/form', locals: { comment: @comment, post: @post })
+= render(partial: 'posts/comments/form', locals: { @comment => @comment })
 hr
 = nested_comments(@comments.select { |comment| !comment.has_parent? && comment.content })
