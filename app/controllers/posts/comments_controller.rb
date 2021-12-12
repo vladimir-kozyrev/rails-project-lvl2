@@ -5,6 +5,11 @@ module Posts
     before_action :authenticate_user!, only: :create
     before_action :resource_post, only: :create
 
+    # GET /posts/:post_id/comments/new
+    def new
+      @comment = PostComment.new(post_id: params[:post_id], parent_id: params[:parent_id])
+    end
+
     # POST /posts/:post_id/comments
     def create
       comment = @resource_post.comments.build(comment_params.merge(user_id: current_user.id))
@@ -18,7 +23,7 @@ module Posts
     private
 
     def comment_params
-      params.require(:post_comment).permit(:content)
+      params.require(:post_comment).permit(:content, :parent_id)
     end
   end
 end
