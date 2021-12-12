@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module CommentsHelper
+module Posts::CommentsHelper
   def nested_comments(comments)
     return if comments.nil?
 
