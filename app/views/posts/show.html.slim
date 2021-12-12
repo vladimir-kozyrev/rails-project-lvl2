@@ -1,15 +1,9 @@
-p#notice
-  = notice
 h3
   = @post.title
 p
   = @post.body
 p
   = "Posted by #{@post.user.email}"
-p
-  strong
-    = 'Write a comment'
-
 = render(partial: 'posts/comments/form', locals: { comment: @comment, post: @post })
 hr
 = nested_comments(@comments.select { |comment| !comment.has_parent? && comment.content })
