@@ -2,7 +2,7 @@
 
 module Posts
   class CommentsController < Posts::ApplicationController
-    before_action :authenticate_user!, only: :create
+    before_action :authenticate_user!, only: %i[create new]
     before_action :resource_post, only: :create
 
     # GET /posts/:post_id/comments/new
