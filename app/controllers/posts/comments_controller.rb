@@ -7,11 +7,11 @@ module Posts
 
     # POST /posts/:post_id/comments
     def create
-      comment = @resource_post.comments.build(comment_params)
+      comment = @resource_post.comments.build(comment_params.merge(user_id: current_user.id))
       if comment.save
         redirect_to post_path(@resource_post), notice: 'Comment was successfully created.'
       else
-        render post_path(@resource_post)
+        redirect_to post_path(@resource_post)
       end
     end
 

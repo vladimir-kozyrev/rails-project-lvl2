@@ -27,7 +27,7 @@ user = User.create(
   )
   post.save
 
-  next unless index == 0
+  next unless index.zero?
 
   comment1 = post.comments.build(content: 'comment 1', user_id: post.user.id)
   comment1.save

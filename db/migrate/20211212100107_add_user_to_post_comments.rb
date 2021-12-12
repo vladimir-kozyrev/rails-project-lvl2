@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddUserToPostComments < ActiveRecord::Migration[6.1]
   def change
     add_reference :post_comments, :user, null: false, foreign_key: true
