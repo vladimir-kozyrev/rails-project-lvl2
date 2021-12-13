@@ -4,3 +4,21 @@
 
 ### Heroku link
 https://hexlet-project-lvl2.herokuapp.com
+
+### Setup
+
+```shell
+make setup
+```
+
+### Run
+
+```shell
+make start
+```
+
+### Run tests and linters
+
+```shell
+make test
+```
