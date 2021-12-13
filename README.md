@@ -11,7 +11,7 @@ https://hexlet-project-lvl2.herokuapp.com
 make setup
 ```
 
-### Run
+### Run the application
 
 ```shell
 make start
