@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new edit create update destroy]
-  before_action :set_post, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: %i[new create]
+  before_action :set_post, only: :show
 
   # GET /posts
   def index

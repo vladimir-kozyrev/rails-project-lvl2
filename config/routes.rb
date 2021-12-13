@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   resources :posts, only: %i[index show new create] do
-    scope module: 'posts', shallow: true do
+    scope module: 'posts' do
       resources :comments, only: %i[create new]
-      resources :likes, only: :create
+      resources :likes, only: %i[create destroy]
     end
   end
 
