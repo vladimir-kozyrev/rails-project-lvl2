@@ -3,11 +3,11 @@
 one:
   title: My title 1
   body: Text 1
-  category: one
-  user: one
+  post_category: one
+  creator: one
 
 two:
   title: My title 2
   body: Text 2
-  category: two
-  user: one
+  post_category: two
+  creator: one

@@ -11,5 +11,7 @@ table
         br
         = post.body
         br
-        = "Likes: #{post.likes.count}, #{days_ago_since(post.created_at)} days, #{post.user.email}"
+          | Likes: #{post.likes.count},
+             #{days_ago_since(post.created_at)} days,
+             #{post.creator.email}
         hr

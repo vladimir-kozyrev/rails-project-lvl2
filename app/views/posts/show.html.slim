@@ -3,7 +3,7 @@ h3
 p
   = @post.body
 p
-  = "Posted by #{@post.user.email}, "
+  = "Posted by #{@post.creator.email}, "
   = link_to post_likes_path(@post), method: :post do
     - if user_liked_this_post?(@post)
       <i class="fas fa-thumbs-up"></i>

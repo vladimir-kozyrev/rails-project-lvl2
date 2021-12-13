@@ -23,18 +23,18 @@ user = User.create(
   post = user.posts.build(
     title: Faker::Lorem.sentence,
     body: Faker::Lorem.paragraph,
-    category_id: rand(1..5)
+    post_category_id: rand(1..5)
   )
   post.save
 
   next unless index.zero?
 
-  comment1 = post.comments.build(content: 'comment 1', user_id: post.user.id)
+  comment1 = post.comments.build(content: 'comment 1', creator_id: post.creator.id)
   comment1.save
-  comment21 = post.comments.build(content: 'comment 21', parent: comment1, user_id: post.user.id)
+  comment21 = post.comments.build(content: 'comment 21', parent: comment1, creator_id: post.creator.id)
   comment21.save
-  comment22 = post.comments.build(content: 'comment 22', parent: comment1, user_id: post.user.id)
+  comment22 = post.comments.build(content: 'comment 22', parent: comment1, creator_id: post.creator.id)
   comment22.save
-  comment31 = post.comments.build(content: 'comment 31', parent: comment21, user_id: post.user.id)
+  comment31 = post.comments.build(content: 'comment 31', parent: comment21, creator_id: post.creator.id)
   comment31.save
 end

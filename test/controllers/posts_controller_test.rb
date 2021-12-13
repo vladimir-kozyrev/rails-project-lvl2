@@ -31,8 +31,8 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
         post: {
           body: @post.body,
           title: @post.title,
-          user_id: @post.user_id,
-          category_id: @post.category_id
+          creator_id: @post.creator_id,
+          post_category_id: @post.post_category_id
         }
       }
     end
