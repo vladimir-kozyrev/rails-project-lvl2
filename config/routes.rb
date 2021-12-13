@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   root 'posts#index'
 
-  resources :posts do
+  resources :posts, only: %i[index show new create] do
     scope module: 'posts', shallow: true do
       resources :comments, only: %i[create new]
       resources :likes, only: :create

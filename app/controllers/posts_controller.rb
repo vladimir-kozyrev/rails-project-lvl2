@@ -20,9 +20,6 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  # GET /posts/:id/edit
-  def edit; end
-
   # POST /posts
   def create
     @post = Post.new(post_params)
@@ -31,21 +28,6 @@ class PostsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  # PATCH/PUT /posts/:id
-  def update
-    if @post.update(post_params)
-      redirect_to @post, notice: 'Post was successfully updated.'
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /posts/:id
-  def destroy
-    @post.destroy
-    redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
   private
