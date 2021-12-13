@@ -21,7 +21,8 @@ module Posts
         post post_comments_path(@comment.post), params: {
           post_comment: {
             content: @comment.content,
-            post_id: @comment.post_id
+            post_id: @comment.post_id,
+            ancestry: @comment.ancestry
           }
         }
       end
