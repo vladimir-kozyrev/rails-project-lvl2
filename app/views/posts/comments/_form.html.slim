@@ -1,13 +1,12 @@
 p
   strong
-    = 'Write a comment'
+    = t('.new_comment_prompt')
 = simple_form_for(@comment, url: post_comments_path(@comment.post)) do |f|
   - if @comment.errors.any?
     #error_explanation
 
     h2
-      = pluralize(@comment.errors.count, 'error')
-      | prohibited this @comment from being saved:
+      = pluralize(@comment.errors.count, 'error') + t('.error')
     ul
       - @comment.errors.each do |error|
         li

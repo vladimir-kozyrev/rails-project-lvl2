@@ -12,8 +12,8 @@ module Posts
 
     # POST /posts/:post_id/comments
     def create
-      comment = @post.comments.build(comment_params.merge(user_id: current_user.id))
-      if comment.save
+      @comment = @post.comments.build(comment_params.merge(user_id: current_user.id))
+      if @comment.save
         redirect_to post_path(@post), notice: 'Comment was successfully created.'
       else
         render :new

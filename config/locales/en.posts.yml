@@ -6,6 +6,7 @@ en:
       form:
         new_comment_prompt: 'Write a comment'
         create: 'Create'
+        error: ' prohibited this post from being saved:'
     form:
       error: ' prohibited this post from being saved:'
     index:
