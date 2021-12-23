@@ -11,3 +11,8 @@ en:
     index:
       posts: 'Posts'
       likes: 'Likes'
+    new:
+      post: 'New Post'
+      back: 'Back'
+    show:
+      posted_by: 'Posted by'

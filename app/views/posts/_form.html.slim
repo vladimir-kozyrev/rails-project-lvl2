@@ -3,8 +3,7 @@
     #error_explanation
 
     h2
-      = pluralize(post.errors.count, 'error')
-      |  prohibited this post from being saved:
+      = pluralize(post.errors.count, 'error') + t('.error')
     ul
       - post.errors.each do |error|
         li

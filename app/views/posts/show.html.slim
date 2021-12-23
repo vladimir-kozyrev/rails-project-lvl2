@@ -3,7 +3,7 @@ h3
 p
   = @post.body
 p
-  = "Posted by #{@post.creator.email}, "
+  = "#{t('.posted_by')} #{@post.creator.email}, "
   - if user_liked_this_post?(@post)
     = link_to post_like_path(@post, @post.likes.where(post_id: @post.id).first), method: :delete do
       i class='fas fa-thumbs-up'
