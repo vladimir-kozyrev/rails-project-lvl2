@@ -3,7 +3,7 @@
 module Posts
   class CommentsController < ApplicationController
     before_action :authenticate_user!, only: %i[create new]
-    before_action :set_post, only: :create
+    before_action :post, only: :create
 
     # GET /posts/:post_id/comments/new
     def new
@@ -26,7 +26,7 @@ module Posts
       params.require(:post_comment).permit(:content, :parent_id)
     end
 
-    def set_post
+    def post
       @post ||= Post.find params[:post_id]
     end
   end

@@ -3,7 +3,7 @@
 module Posts
   class LikesController < ApplicationController
     before_action :authenticate_user!, only: %i[create destroy]
-    before_action :set_post, only: %i[create destroy]
+    before_action :post, only: %i[create destroy]
     before_action :set_like, only: :destroy
 
     def create
@@ -23,7 +23,7 @@ module Posts
       @like = PostLike.find(params[:id])
     end
 
-    def set_post
+    def post
       @post ||= Post.find params[:post_id]
     end
   end
