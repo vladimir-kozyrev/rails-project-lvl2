@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module Posts
-  class LikesController < Posts::ApplicationController
+  class LikesController < ApplicationController
     before_action :authenticate_user!, only: %i[create destroy]
-    before_action :post, only: %i[create destroy]
+    before_action :set_post, only: %i[create destroy]
     before_action :set_like, only: :destroy
 
     def create
@@ -21,6 +21,10 @@ module Posts
 
     def set_like
       @like = PostLike.find(params[:id])
+    end
+
+    def set_post
+      @post ||= Post.find params[:post_id]
     end
 
     def remove_likes_from_post(post_id)

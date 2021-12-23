@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module Posts
-  class CommentsController < Posts::ApplicationController
+  class CommentsController < ApplicationController
     before_action :authenticate_user!, only: %i[create new]
-    before_action :post, only: :create
+    before_action :set_post, only: :create
 
     # GET /posts/:post_id/comments/new
     def new
@@ -24,6 +24,10 @@ module Posts
 
     def comment_params
       params.require(:post_comment).permit(:content, :parent_id)
+    end
+
+    def set_post
+      @post ||= Post.find params[:post_id]
     end
   end
 end
