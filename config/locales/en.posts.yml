@@ -1,0 +1,13 @@
+en:
+  posts:
+    comments:
+      comment:
+        reply: 'Reply'
+      form:
+        new_comment_prompt: 'Write a comment'
+        create: 'Create'
+    form:
+      error: ' prohibited this post from being saved:'
+    index:
+      posts: 'Posts'
+      likes: 'Likes'
