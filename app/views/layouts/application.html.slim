@@ -2,8 +2,8 @@ doctype html
 html
   head
     title
-      | Hexlet project #2
-    meta[name="viewport" content="width=device-width,initial-scale=1"]
+      = t('.title')
+    meta[name='viewport' content='width=device-width,initial-scale=1']
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_pack_tag 'application', media: 'all',
