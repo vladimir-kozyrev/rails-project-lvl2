@@ -2,8 +2,8 @@
 
 module Posts
   class ApplicationController < ApplicationController
-    def resource_post
-      @resource_post = Post.find params[:post_id]
+    def post
+      @post ||= Post.find params[:post_id]
     end
   end
 end

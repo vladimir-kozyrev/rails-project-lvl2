@@ -3,7 +3,7 @@
 module Posts
   class CommentsController < Posts::ApplicationController
     before_action :authenticate_user!, only: %i[create new]
-    before_action :resource_post, only: :create
+    before_action :post, only: :create
 
     # GET /posts/:post_id/comments/new
     def new
@@ -12,11 +12,11 @@ module Posts
 
     # POST /posts/:post_id/comments
     def create
-      comment = @resource_post.comments.build(comment_params.merge(user_id: current_user.id))
+      comment = @post.comments.build(comment_params.merge(user_id: current_user.id))
       if comment.save
-        redirect_to post_path(@resource_post), notice: 'Comment was successfully created.'
+        redirect_to post_path(@post), notice: 'Comment was successfully created.'
       else
-        redirect_to post_path(@resource_post)
+        render :new
       end
     end
 

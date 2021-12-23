@@ -3,18 +3,18 @@
 module Posts
   class LikesController < Posts::ApplicationController
     before_action :authenticate_user!, only: %i[create destroy]
-    before_action :resource_post, only: %i[create destroy]
+    before_action :post, only: %i[create destroy]
     before_action :set_like, only: :destroy
 
     def create
-      like = @resource_post.likes.build(user_id: current_user.id)
+      like = @post.likes.build(user_id: current_user.id)
       like.save
-      redirect_to @resource_post
+      redirect_to @post
     end
 
     def destroy
       @like.destroy
-      redirect_to @resource_post
+      redirect_to @post
     end
 
     private
