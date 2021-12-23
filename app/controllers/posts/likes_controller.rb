@@ -26,9 +26,5 @@ module Posts
     def set_post
       @post ||= Post.find params[:post_id]
     end
-
-    def remove_likes_from_post(post_id)
-      current_user.likes.where(post_id: post_id).delete_all
-    end
   end
 end
