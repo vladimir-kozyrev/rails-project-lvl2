@@ -6,3 +6,5 @@ AllCops:
     - 'db/schema.rb'
 Style/Documentation:
   Enabled: false
+Metrics/BlockLength:
+  Max: 30
