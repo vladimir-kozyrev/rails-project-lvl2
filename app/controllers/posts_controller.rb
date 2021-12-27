@@ -22,11 +22,11 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.'
+      redirect_to root_path
     else
-      redirect_to new_post_path
+      render :new
     end
   end
 
@@ -39,6 +39,6 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    params.require(:post).permit(:title, :body, :creator_id, :post_category_id)
+    params.require(:post).permit(:title, :body, :post_category_id)
   end
 end

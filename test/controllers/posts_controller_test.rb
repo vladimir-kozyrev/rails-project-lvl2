@@ -26,18 +26,19 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create post' do
-    assert_difference('Post.count') do
-      post posts_url, params: {
-        post: {
-          body: @post.body,
-          title: @post.title,
-          creator_id: @post.creator_id,
-          post_category_id: @post.post_category_id
-        }
-      }
+    post_category = post_categories(:one)
+    attrs = {
+      title: Faker::Lorem.sentence,
+      body: Faker::Lorem.paragraphs.join("\n"),
+      post_category_id: post_category.id
+    }
+    assert_difference('Post.count', +1) do
+      post posts_path, params: { post: attrs }
     end
+    assert_response :redirect
 
-    assert_redirected_to post_url(Post.last)
+    post = Post.find_by(attrs)
+    assert { post }
   end
 
   test 'should show post' do
