@@ -5,10 +5,11 @@ module Posts
     def nested_comments(comments)
       return if comments.nil?
 
-      comments.map do |comment|
+      nested_comments = comments.map do |comment|
         render(partial: 'posts/comments/comment', locals: { comment: comment }) +
           content_tag(:div, nested_comments(comment.children), class: 'nested_comments')
-      end.join
+      end
+      safe_join(nested_comments)
     end
   end
 end
