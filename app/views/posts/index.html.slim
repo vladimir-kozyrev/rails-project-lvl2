@@ -1,17 +1,15 @@
-h1
-  = t('.posts')
-table
-  tbody
+.container
+  h1[class='display-5']
+    = t('.posts')
+  ul.list-group.list-group-flush
     - @posts.each do |post|
-      tr
-
-      td
-        b
-          = link_to post.title, post
-        br
-        = post.body
-        br
-          | #{t('.likes')}: #{post.likes.count},
-             #{days_ago_since(post.created_at)} days,
-             #{post.creator.email}
-        hr
+      .row.list-group-item
+        .col.col-md-6
+          .row
+            = link_to post.title, post
+          .row
+            = post.body
+          .row
+            | #{t('.likes')}: #{post.likes.count},
+                #{days_ago_since(post.created_at)} days,
+                #{post.creator.email}

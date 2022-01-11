@@ -1,16 +1,20 @@
-h3
-  = @post.title
-p
-  = @post.body
-p
-  = "#{t('.posted_by')} #{@post.creator.email}, "
-  - if user_liked_this_post?(@post)
-    = link_to post_like_path(@post, @post.likes.where(post_id: @post.id).first), method: :delete do
-      i class='fas fa-thumbs-up'
-  - else
-    = link_to post_likes_path(@post), method: :post do
-      i class='far fa-thumbs-up'
-  = " #{@post.likes.count}"
-= render(partial: 'posts/comments/form', locals: { @comment => @comment })
-hr
-= nested_comments(@comments.select { |comment| !comment.has_parent? && comment.content })
+.container
+  h2[class='display-6']
+    = @post.title
+  .row
+    .col.col-md-6
+      p
+        = @post.body
+      p
+        = "#{t('.posted_by')} #{@post.creator.email}, "
+        - if user_liked_this_post?(@post)
+          = link_to post_like_path(@post, @post.likes.where(post_id: @post.id).first),
+                    method: :delete do
+            i class='fas fa-thumbs-up'
+        - else
+          = link_to post_likes_path(@post), method: :post do
+            i class='far fa-thumbs-up'
+        = " #{@post.likes.count}"
+    = render(partial: 'posts/comments/form', locals: { @comment => @comment })
+  hr
+  = nested_comments(@comments.select { |comment| !comment.has_parent? && comment.content })

@@ -1,18 +1,18 @@
-nav.navbar.navbar-dark.navbar-static-top.navbar-expand-md
+nav.p-3.bg-dark.text-white
   .container
-    .collapse.navbar-collapse#bs-example-navbar-collapse-1
-      ul.nav.navbar-nav.mr-auto
-        li.nav-item
-          = link_to root_path, class: 'nav-link' do
-            i class='fas fa-home'
+    .d-flex.flex-wrap.align-items-center.justify-content-center.justify-content-lg-start
+      = link_to root_path, class: 'd-flex align-items-center mb-2 mb-lg-0 \
+                                  text-white text-decoration-none' do
+        i class='fas fa-home bi me-2'
+      ul.nav.col-12.col-lg-auto.me-lg-auto.mb-2.justify-content-center.mb-md-0
         - if user_signed_in?
-          li.nav-item
-            = link_to t('.sign_out'), destroy_user_session_path, class: 'nav-link',
+          li
+            = link_to t('.new_post'), new_post_path, class: 'nav-link px-2 text-white'
+          li
+            = link_to t('.sign_out'), destroy_user_session_path, class: 'nav-link px-2 text-white',
                                                              method: :delete
-          li.nav-item
-            = link_to t('.new_post'), new_post_path, class: 'nav-link'
         - else
-          li.nav-item
-            = link_to t('.sign_in'), new_user_session_path, class: 'nav-link'
-          li.nav-item
-            = link_to t('.sign_up'), new_user_registration_path, class: 'nav-link'
+          li
+            = link_to t('.sign_in'), new_user_session_path, class: 'nav-link px-2 text-white'
+          li
+            = link_to t('.sign_up'), new_user_registration_path, class: 'nav-link px-2 text-white'

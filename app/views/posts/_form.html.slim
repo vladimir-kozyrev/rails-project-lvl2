@@ -2,14 +2,18 @@
   - if post.errors.any?
     #error_explanation
 
-    h2
+    h2[class='display-6']
       = pluralize(post.errors.count, 'error') + t('.error')
     ul
       - post.errors.each do |error|
         li
           = error.full_message
-  = f.input :title
-  = f.input :body
-  = f.association :post_category
+  = f.input :title, label_html: { class: 'form-label' },
+                    input_html: { class: 'form-control' }
+  = f.input :body, label_html: { class: 'form-label' },
+                   input_html: { class: 'form-control' }
+  = f.association :post_category, label_html: { class: 'form-label' },
+                                  input_html: { class: 'form-select' },
+                                  prompt: 'Select a category'
   = f.hidden_field :creator_id, value: current_user.id
-  = f.button :submit, class: 'btn btn-default btn-primary'
+  = f.button :submit, class: 'btn btn-default btn-primary my-3'
