@@ -9,6 +9,7 @@ en:
         error: ' prohibited this post from being saved:'
     form:
       error: ' prohibited this post from being saved:'
+      select_post_category: 'Select a category'
     index:
       posts: 'Posts'
       likes: 'Likes'
