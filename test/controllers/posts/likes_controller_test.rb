@@ -15,14 +15,13 @@ module Posts
     end
 
     test 'should like post if it isn\'t already liked by user' do
-      assert_difference('PostLike.count', +1) do
-        post post_likes_path(@post.id), params: {
-          post_like: {
-            user_id: @user.id,
-            post_id: @post.id
-          }
+      post post_likes_path(@post.id), params: {
+        post_like: {
+          user_id: @user.id,
+          post_id: @post.id
         }
-      end
+      }
+      assert { PostLike.find_by(user_id: @user.id, post_id: @post.id) }
     end
 
     test 'should destroy like if post is already liked by user' do
