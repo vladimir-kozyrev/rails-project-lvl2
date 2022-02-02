@@ -5,6 +5,9 @@
 ### Heroku link
 https://hexlet-project-lvl2.herokuapp.com
 
+### Ruby version
+3.0.2
+
 ### Setup
 
 ```shell
