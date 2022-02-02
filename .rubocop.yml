@@ -4,6 +4,7 @@ AllCops:
     - 'bin/bundle'
     - 'config/initializers/devise.rb'
     - 'db/schema.rb'
+    - 'config/initializers/simple_form_bootstrap.rb'
 Style/Documentation:
   Enabled: false
 Metrics/BlockLength:
