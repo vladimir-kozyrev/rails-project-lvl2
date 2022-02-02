@@ -3,8 +3,9 @@ AllCops:
   Exclude:
     - 'bin/bundle'
     - 'config/initializers/devise.rb'
-    - 'db/schema.rb'
     - 'config/initializers/simple_form_bootstrap.rb'
+    - 'db/schema.rb'
+    - 'vendor/**/*'
 Style/Documentation:
   Enabled: false
 Metrics/BlockLength:
