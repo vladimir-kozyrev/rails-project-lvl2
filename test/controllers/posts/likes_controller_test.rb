@@ -11,11 +11,7 @@ module Posts
       @user = users(:one)
       @post = posts(:two)
       # sign in to be able to do test actions
-      get '/users/sign_in'
       sign_in users(:one)
-      post user_session_url
-      follow_redirect!
-      assert_response :success
     end
 
     test 'should like post if it isn\'t already liked by user' do

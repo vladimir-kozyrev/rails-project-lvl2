@@ -9,11 +9,7 @@ module Posts
     setup do
       @comment = post_comments(:one)
       # sign in to be able to do test actions
-      get '/users/sign_in'
       sign_in users(:one)
-      post user_session_url
-      follow_redirect!
-      assert_response :success
     end
 
     test 'should create comment' do
