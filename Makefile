@@ -10,7 +10,11 @@ console:
 
 test:
 	NODE_ENV=test bin/rails test
+
+lint:
 	bundle exec rubocop
 	bundle exec slim-lint app/views
+
+full_check: test lint
 
 .PHONY: test

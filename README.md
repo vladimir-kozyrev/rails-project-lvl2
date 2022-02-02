@@ -24,4 +24,11 @@ make start
 
 ```shell
 make test
+make lint
+```
+
+If you would like to run both tests and linters, then you can use a single command
+
+```shell
+make full_check
 ```
