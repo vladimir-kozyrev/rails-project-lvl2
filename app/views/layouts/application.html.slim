@@ -12,10 +12,12 @@ html
   body
     header
       = render 'layouts/nav'
-    / BEGIN required for devise gem to work
-    p.notice
-      = notice
-    p.alert
-      = alert
-    / END required for devise gem to work
+    - flash.each do |type, message|
+      - case type
+      - when 'notice'
+        p.alert.alert-primary.text-center
+          = message
+      - when 'alert'
+        p.alert.alert-danger.text-center
+          = message
     = yield
